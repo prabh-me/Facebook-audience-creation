@@ -1,0 +1,13 @@
+{
+  "name": "firebase_cloud_function",
+  "description": "Add_to_Cart trigger",
+  "dependencies": {
+    "firebase-admin": "^4.1.1",
+    "firebase-functions": "^0.5.1",
+    "http": "0.0.0",
+    "http": "",
+    "request":"2.81.0",
+    "needle":"1.6.0",
+    "nodemailer": "^2.4.1"
+  }
+}
