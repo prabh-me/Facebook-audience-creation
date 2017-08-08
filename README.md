@@ -1,37 +1,19 @@
-# Send a survey when users update your app
+## Automated-Facebook-Audience-Creation
+Automated audience creation/addition on facebook using Firebase Cloud Functions. 
+A user is added to an audience on the basis of a trigger event. Ex: Add_To_Cart. 
+Now, the user can be shown relevant campaigns on Facebook to push him complete the purchase.
 
-This sample shows how to send a survey to your users who have updated your app. App Update is detected using a Firebase Analytics event.
+## Pre-requisites
+* Node.js
+* Firebase project
+* Firebase-CLI
+* Apache web server
+* PHP5
 
-
-## Functions Code
-
-See file [functions/index.js](functions/index.js) for the trigger and the email sending code.
-
-Sending emails is performed using [nodemailer](https://www.npmjs.com/package/nodemailer) a node based Email client with comprehensive EMail server setup. For simplicity, in this sample we're showing how to send email through SMTP using a Gmail account. Be aware that Gmail has an [email sending quota](https://support.google.com/mail/answer/22839). If you are planning on sending a large number of emails you should use a professional email sending platform such as [Sendgrid](https://console.cloud.google.com/launcher/details/sendgrid-app/sendgrid-email), [Mailjet](https://www.mailjet.com/google) or [Mailgun](http://www.mailgun.com/google).
-
-The dependencies are listed in [functions/package.json](functions/package.json).
-
-
-## Trigger rules
-
-The function triggers on changes to `app_update` Firebase Analytics events. For other automatically logged events see: https://support.google.com/firebase/answer/6317485
-
-
-## Setting up the sample
-
-Set the `gmail.email` and `gmail.password` Google Cloud environment variables to match the email and password of the Gmail account used to send emails. For this use:
-
-```bash
-firebase functions:config:set gmail.email="myusername@gmail.com" gmail.password="secretpassword"
+## Steps to run the code
+* Install Apache and PHP5 on a remote machine. https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04
+* Setup Firebase-CLI on your machine https://firebase.google.com/docs/cli
+* Deploy the firebase_cloud_function.js file on Google's server by using command
 ```
-
-
-## Deploy and test
-
-This sample can be tested on your Android and iOS app. To test it out:
-
- - Make sure you set the `app_update` events as being a **Conversion event** in your project. You can do this on the Analytics section > Events tab.
- - Set the project to your Firebase project using `firebase use --add` then select your projec tin the list.
- - Deploy your project using `firebase deploy`
- - Have users update your app, for instance through the play store.
- - Within a few hours the emails to the survey will be sent.
+firebase deploy --only functions
+```
