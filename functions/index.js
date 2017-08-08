@@ -5,6 +5,7 @@ const admin = require('firebase-admin');
 
 admin.initializeApp(functions.config().firebase);
 
+//Trigger for function add to cart.
 exports.add_to_cart = functions.analytics.event('add_to_cart').onLog(event => {
 		var http = require("http");
 		var needle = require('needle');
